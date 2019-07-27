@@ -20,5 +20,14 @@ server.on('request',(req,res)=>{
       if(err) console.log(err);
       res.end(data);
     })
+  }else {
+    // 处理ajax请求
+    // 约定好，前端发过来的请求 如果是  /getAllHeros 就返回所有的影响的数据
+    if(req.url === '/getAllHeros'){
+      // 把json文件里面的数据，读取出来，返回给浏览器
+      fs.readFile('./data/heros.json',(err,data)=>{
+        res.end(data);
+      })
+    }
   }
 });
