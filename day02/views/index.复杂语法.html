@@ -40,17 +40,17 @@
         </tr>
       </thead>
       <tbody id="tbody">
-        {{each arr val}}
+        <% for(var i =0; i < arr.length; i++) { %>
           <tr>
-            <td>{{val.id}}</td>
-            <td>{{val.name}}</td>
-            <td>{{val.gender}}</td>
-            <td><img src="{{val.img}}"></td>
-            <td><a href="./edit.html?id={{val.id}}">修改</a> 
-              <a data-id="{{val.id}}" href="javascript:void(0);">删除</a>
+            <td><%=arr[i].id%></td>
+            <td><%=arr[i].name%></td>
+            <td><%=arr[i].gender%></td>
+            <td><img src="<%=arr[i].img%>"></td>
+            <td><a href="./edit.html?id=<%=arr[i].id%>">修改</a> 
+              <a data-id="<%=arr[i].id%>" href="javascript:void(0);">删除</a>
             </td>
           </tr>
-        {{/each}}
+        <% } %>
       </tbody>
     </table>
   </div> 
