@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hero - Admin</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <style>
+    .hero-list img {
+      width: 50px;
+      height: 50px;
+      display: block
+    }
+
+    .hero-list td {
+      height: 50px;
+      line-height: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="page-header container">
+      <h1>王者荣耀 <small>英雄管理器</small></h1>
+
+      <a href="javascript:void(0);" class="btn btn-exit btn-primary" hidden style='float:right;'>退出</a>
+      <a href="login.html" class="btn btn-login btn-success" style='float:right'>登录</a>
+    </div>
+  </header>
+  <div class="container hero-list">
+    <a class="btn btn-add btn-success pull-right" href="./add.html">添加英雄</a>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>编号</th>
+          <th>名称</th>
+          <th>性别</th>
+          <th>头像</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+        <tr>
+          <td>1</td>
+          <td>狗蛋</td>
+          <td>男</td>
+          <td><img src="../assets/image/0.jpg"></td>
+          <td><a href="./edit.html?id=1">修改</a> 
+            <a data-id="1" href="javascript:void(0);">删除</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div> 
+</body>
+</html>
