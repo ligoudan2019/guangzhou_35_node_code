@@ -15,5 +15,12 @@ const router = express.Router(); // express的路由是一个方法，而且首�
 router.get('/index', (req, res) => {
   controller.getIndex(req,res);
 });
+
+// 监听删除的请求
+router.get('/deleteHeroById',(req,res)=>{
+  // 找一个controller做删除操作
+  controller.deleteHeroById(req,res);
+})
+
 // 4 把router对象暴露出去
 module.exports = router;

@@ -1,14 +1,1 @@
-[
-  {
-    "id":1,
-    "name":"狗蛋",
-    "gender":"男",
-    "img": "../assets/image/0.jpg"
-  },
-  {
-    "id":2,
-    "name":"翠花",
-    "gender":"女",
-    "img": "../assets/image/1.jpg"
-  }
-]
+[{"id":2,"name":"翠花","gender":"女","img":"../assets/image/1.jpg"},{"id":3,"name":"翠花","gender":"女","img":"../assets/image/1.jpg"},{"id":5,"name":"翠花","gender":"女","img":"../assets/image/1.jpg"}]
