@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
   }
 }
