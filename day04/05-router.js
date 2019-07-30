@@ -16,10 +16,23 @@ router.get('/index', (req, res) => {
   controller.getIndex(req,res);
 });
 
+// 请求添加页面
+router.get('/add',(req,res)=>{
+  // 找controller返回一个add的页面
+  controller.getAdd(req,res);
+})
+
 // 监听删除的请求
 router.get('/deleteHeroById',(req,res)=>{
   // 找一个controller做删除操作
   controller.deleteHeroById(req,res);
+})
+
+// 监听新增数据的请求
+// router.post(监听的地址,处理程序);
+router.post('/addNewHero',(req,res)=>{
+  console.log(req.body);
+  controller.addNewHero(req,res);
 })
 
 // 4 把router对象暴露出去
