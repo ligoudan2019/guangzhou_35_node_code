@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+/*
+  中间件
+    什么是中间件
+      流程中的某个环节
+      在express里面是一个函数
+        该中间件函数有三个参数
+          req - 请求对象
+          res - 响应对象
+          next - 下一个中间件
+    中间件的作用：
+      在流程里面加上些后面的流程要用的东西
+
+    怎么用？
+      app.use(function(req,res,next){
+
+        next();// 通常都会继续调用下一个环节，除非已经是最后一个
+      });
+  修改
+      和以前一样
+        先在服务器提供一个获取静态资源的接口
+        再提供一个根据id获取数据的接口
+        在服务器提供一个根据id修改数据的接口
+        根据id获取数据，填到表单里面
+        点击完成，收集数据，发送回服务器
+  跨域
+      什么是跨域
+        跨过不同的域名获取数据
+        默认是不允许的
+      有什么用
+        有时候还是需要去别人的服务器获取数据的
+          —— 微信快速登录
+          —— 第三方平台的数据接口
+      怎么用
+        通常是两个
+          服务器端允许 - 在响应头里面添加一个指定的允许的体
+
+          jsonp
+            原理：
+              1.使用script标签发送请求 - 因为它的src属性，既能发请求，又能跨域
+              2.script发送的请求除了接口地址，还要带一个函数名到服务器
+              3.服务器接收到请求之后，得到函数名，返回一个 函数(数据) 这个格式
+              4.script标签接收到返回的结果，按照js的方式解析，就可以把数据获取到了
+
+
+
+*/
+</script>
+</html>

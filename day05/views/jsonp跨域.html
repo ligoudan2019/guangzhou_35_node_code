@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box"></div>
+  <!-- <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1564658738983&di=5b113a9dc178d98917245f48126d9780&imgtype=jpg&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20170728%2F4295e84acd2048379be5f28a5ccbe648.png" alt=""> -->
+
+  <script src="http://127.0.0.1:9090/assets/js/jquery.js"></script>
+  <script>
+    function getData(data){
+      console.log(data);
+      // 此时就拿到了数据
+      let html = '';
+      data.forEach(e => {
+        html += `<div>${e.name}</div><div>${e.age}</div>`;
+      });
+      $('.box').html(html);
+    }
+  </script>
+  <script src="http://127.0.0.1:9090/testCross?fn=getData"></script>
+</body>
+</html>
