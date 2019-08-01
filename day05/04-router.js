@@ -12,6 +12,10 @@ router.get('/edit',(req,res)=>{
   controller.getEdit(req,res);
 })
 
+router.get('/edit2',(req,res)=>{
+  controller.getEdit2(req,res);
+})
+
 // 给前端一个根据id获取原来的数据的接口
 router.get('/getHeroById',(req,res)=>{
   controller.getHeroById(req,res);

@@ -11,6 +11,19 @@ function getEdit(req,res){
   res.render('edit');
 }
 
+// 使用模板引擎动态渲染的修改页面
+function getEdit2(req,res){
+  // 需要把要修改的旧的数据已经带回浏览器
+  let id = req.query.id;
+  // console.log(id);
+  // 根据id把旧的数据获取出来
+  model.getHeroById(id,target=>{
+    // console.log(target);
+    res.render('edit2',target);
+  })
+  // res.send('ok');
+}
+
 
 function getHeroById(req,res){
   let id = req.query.id;
@@ -49,7 +62,7 @@ function editHeroById(req,res){
 
 
 const controller = {
-  getIndex,getEdit,getHeroById,editHeroById
+  getIndex,getEdit,getHeroById,editHeroById,getEdit2
 }
 
 module.exports = controller;
