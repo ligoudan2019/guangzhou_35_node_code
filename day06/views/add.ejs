@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Hero - Admin</title>
-    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
     <style>
         .hero-list img {
             width: 50px;
@@ -19,7 +19,7 @@
     </header>
     <div class="container hero-list">
         <form id='myform'>
-            <input type="hidden" name="img" id="headSrc">
+            <input type="hidden" name="img" id="headSrc" value="../assets/image/0.jpg">
             <table class="table table-hover">
                 <tbody>
                     <tr>
@@ -28,12 +28,12 @@
                     </tr>
                     <tr>
                         <td>性别：</td>
-                        <td><input id="nan" name="gender" value="男" type="radio"><label for="nan">男</label> <input
+                        <td><input id="nan" checked name="gender" value="男" type="radio"><label for="nan">男</label> <input
                                 name="gender" value="女" type="radio" id="nv"><label for="nv">女</label></td>
                     </tr>
                     <tr>
                         <td>头像：</td>
-                        <td><img src="../static/images/0.jpg" alt="" id="photo" width="100">
+                        <td><img src="../assets/image/0.jpg" alt="" id="photo" width="100">
                             <input type="file" id="img"></td>
                     </tr>
                     <tr>
@@ -46,5 +46,6 @@
     </div>
 
 </body>
-
+<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/add.js"></script>
 </html>

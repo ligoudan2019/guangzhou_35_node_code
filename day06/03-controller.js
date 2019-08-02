@@ -3,8 +3,11 @@ const model = require('./04-model');
 function getIndex(req,res){
   model.getAllHero((arr)=>{
     res.render('index',{arr});
-  })
-  
+  })  
+}
+
+function getAdd(req,res){
+  res.render('add');
 }
 
 function getEdit(req,res){
@@ -60,9 +63,43 @@ function editHeroById(req,res){
 
 }
 
+function addNewHero(req,res){
+  // console.log(req.body);
+  model.addNewHero(req.body,result=>{
+    // console.log(result);
+    // 判断受影响的行数是否为1，如果是1，就是成功
+    let response = {
+      code : 501,
+      msg : '失败'
+    };
+    if(result.affectedRows === 1){
+      response.code = 200;
+      response.msg = '成功';
+    }
+    res.send(response);
+  })
+}
+
+
+// 删除英雄的处理
+function deleteHeroById(req,res){
+  //根据id删除
+  let id = req.query.id;
+  model.deleteHeroById(id,result=>{
+    let response = {
+      code : 501,
+      msg : '失败'
+    };
+    if(result.affectedRows === 1){
+      response.code = 200;
+      response.msg = '成功';
+    }
+    res.send(response);
+  })
+}
 
 const controller = {
-  getIndex,getEdit,getHeroById,editHeroById,getEdit2
+  getIndex,getEdit,getHeroById,editHeroById,getEdit2,getAdd,addNewHero,deleteHeroById
 }
 
 module.exports = controller;
