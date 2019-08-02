@@ -4,7 +4,7 @@ const fs = require('fs');
 const mysql = require('mysql');
 
 module.exports = {
-  getAllHero,writeFile,addNewHero,deleteHeroById
+  getAllHero,addNewHero,deleteHeroById,getHeroById,editHeroById
 };
 
 let conn = mysql.createConnection({
@@ -39,20 +39,27 @@ function addNewHero(data,callback){
   })
 }
 
-function writeFile(arr){
-  let content = JSON.stringify(arr);
-  fs.writeFile('./data/heros.json',content,'utf-8',err=>{
-    if(err) {
-      console.log(err);
-    }
-  })
-}
-
 
 // 删除
 function deleteHeroById(id,callback){
   // let sql = `DELETE FROM heros WHERE id = ${id}`;
   let sql = `UPDATE heros SET isDelete = 1 WHERE id = ${id}`;
+  conn.query(sql,(err,result)=>{
+    if(err) console.log(err);
+    callback(result);
+  })
+}
+
+function getHeroById(id,callback){
+  let sql = `SELECT * FROM heros WHERE id = ${id}`;
+  conn.query(sql,(err,result)=>{
+    if(err) console.log(err);
+    callback(result[0]);
+  });
+}
+
+function editHeroById(id,data,callback){
+  let sql = `UPDATE heros SET \`name\`='${data.name}',\`gender\`='${data.gender}',\`img\`='${data.img}' WHERE id = ${id}`;
   conn.query(sql,(err,result)=>{
     if(err) console.log(err);
     callback(result);

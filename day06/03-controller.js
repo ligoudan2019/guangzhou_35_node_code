@@ -48,19 +48,18 @@ function getHeroById(req,res){
 function editHeroById(req,res){
   // 获取数据
   let data = req.body;
-  // 把数据读取出来
-  model.getAllHero(arr=>{
-    // 遍历数组，把id对比，如果id一致，把数据更改
-    for(let i =0; i < arr.length; i++){
-      if(arr[i].id == data.id){
-        arr[i] = data;
-        break;
-      }
+  // 以前的json的方式和现在数据库的方式不一样的，数据库只需要给一条sql语句就可以了
+  model.editHeroById(data.id,data,result=>{
+    let response = {
+      code : 501,
+      msg : '失败'
+    };
+    if(result.affectedRows === 1){
+      response.code = 200;
+      response.msg = '成功';
     }
-    model.writeFile(arr);
-    res.send({code : 200,msg : '成功'});
-  });
-
+    res.send(response);
+  })
 }
 
 function addNewHero(req,res){
