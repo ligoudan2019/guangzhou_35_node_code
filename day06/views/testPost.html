@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="按钮" id="btn">
+</body>
+<script src="../assets/js/jquery.js"></script>
+<script>
+$(function(){
+$("#btn").on('click',function(){
+  $.ajax({
+    type : 'post',
+    url : 'http://127.0.0.1:8080/testMyBodyParser',
+    data : {
+      a : 10,
+      b : 20,
+      c : 30
+    },
+    success : function(res){
+      console.log(res);
+    }
+  })
+})
+});
+</script>
+</html>

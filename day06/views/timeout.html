@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+/*
+  XMLHttpRequest2.0 里面除了增加了 上传的事件之外，还添加了一些别的新的特性 
+
+    比如 超时
+
+      当网络比较差的时候，可以让ajajx请求，设置一个超时属性，如果请求的时间超过这个超时的属性，就自动取消该次请求，提示用户 —— 优化用户的体验
+
+  xhr.timeout = 毫秒
+
+  和它配套的一个事件 ： 超时事件
+    xhr.ontimeout = function(){}
+*/
+</script>
+<script>
+ let xhr = new XMLHttpRequest();
+ xhr.open('get','http://127.0.0.1:9090/timeout');
+ xhr.timeout = 3000;
+ xhr.ontimeout = function(){
+   alert('请求超时，请重试');
+ }
+ xhr.send();
+ xhr.onreadystatechange = function(){
+   if(xhr.readyState == 4 && xhr.status == 200){
+     console.log(xhr.responseText);
+   }
+ }
+</script>
+</html>

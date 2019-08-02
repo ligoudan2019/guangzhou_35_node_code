@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+</head>
+<body>
+  <!-- <img src="http://api.map.baidu.com/images/weather/day/baoyu.png" alt=""> -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>日期</th>
+        <th>白天天气</th>
+        <th>晚上天气</th>
+        <th>温度</th>
+        <th>描述</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+ 
+
+</body>
+<!-- <script>
+  function fn(data){
+    console.log(data);
+  }
+</script>
+ <script src="http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=zVo5SStav7IUiVON0kuCogecm87lonOj&callback=fn"></script> -->
+
+<script src="../assets/js/jquery.js"></script>
+<script>
+  $.ajax({
+    url : 'http://api.map.baidu.com/telematics/v3/weather',
+    data : {
+      location: '广州',
+      output : 'json',
+      ak : 'zVo5SStav7IUiVON0kuCogecm87lonOj'
+    },
+    success : function(res){
+      // console.log(res);
+      let data = res.results[0].weather_data;
+      let html =``;
+      data.forEach(e => {
+        html += `<tr>
+        <td scope="row">${e.date}</td>
+        <td><img src="${e.dayPictureUrl}"></td>
+        <td><img src="${e.nightPictureUrl}"></td>
+        <td>${e.temperature}</td>
+        <td>${e.weather}</td>
+        <td>${e.wind}</td>
+      </tr>`;
+      });
+      $('tbody').html(html);
+    },
+    // 如果使用jq的ajax实现jsonp请求，需要给一个参数： dataType : jsonp
+    dataType : 'jsonp'
+  })
+</script>
+</html>
